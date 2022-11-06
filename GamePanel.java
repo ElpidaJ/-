@@ -34,18 +34,18 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
         snakeX[1]=75;snakeY[1]=100;//第一个身体的坐标
         snakeX[2]=50;snakeY[2]=100;//第二个身体的坐标
         score=0;
+        fx="R";
+        foodX=25+25*random.nextInt(34);
+        foodY=75+25*random.nextInt( 24);
     }
     public GamePanel(){
         init();
-        fx="R";
         this.setFocusable(true);//获得焦点事件
         addKeyListener(this);//获得键盘的监听事件
         timer.start();//游戏一开始就启动
         //把食物随机分布在界面上
-        foodX=25+25*random.nextInt(34);
-        foodY=75+25*random.nextInt( 24);
     }
-
+    
     @Override
     //绘制面板,游戏中所有的东西都用画板画出来,此方法会在构造对象时自动调用
     protected void paintComponent(Graphics g) {
@@ -105,6 +105,7 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
                     init();
                     repaint();
                 }
+
                 }
                 if(keyCode==KeyEvent.VK_DOWN){
                     fx="D";
