@@ -1,4 +1,4 @@
-package com.userlogin;
+package com.snake;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,7 +39,7 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
         init();
         fx="R";
         this.setFocusable(true);//获得焦点事件
-        this.addKeyListener(this);//获得键盘的监听事件
+        addKeyListener(this);//获得键盘的监听事件
         timer.start();//游戏一开始就启动
         //把食物随机分布在界面上
         foodX=25+25*random.nextInt(34);
@@ -100,14 +100,11 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
                 int keyCode = e.getKeyCode();
                 if(keyCode==KeyEvent.VK_SPACE){
                         isStart=!isStart;
-                        repaint();
-                }
                 if(isFail){
                    isFail=false;
                     init();
                     repaint();
                 }
-        
                 }
                 if(keyCode==KeyEvent.VK_DOWN){
                     fx="D";
@@ -163,7 +160,6 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
                     }
                 }
             }
-
             timer.start();//定时器开始
     }
 
