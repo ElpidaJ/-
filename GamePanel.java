@@ -99,12 +99,15 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
     public void keyPressed(KeyEvent e) {
                 int keyCode = e.getKeyCode();
                 if(keyCode==KeyEvent.VK_SPACE){
-                    if(isFail){
-                        isFail=false;
-                        init();
-                    }
-                    else {isStart=true;}
+                        isStart=!isStart;
+                        repaint();
+                }
+                if(isFail){
+                   isFail=false;
+                    init();
                     repaint();
+                }
+        
                 }
                 if(keyCode==KeyEvent.VK_DOWN){
                     fx="D";
