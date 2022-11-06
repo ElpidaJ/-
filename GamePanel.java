@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
         timer.start();//游戏一开始就启动
         //把食物随机分布在界面上
     }
-    
+
     @Override
     //绘制面板,游戏中所有的东西都用画板画出来,此方法会在构造对象时自动调用
     protected void paintComponent(Graphics g) {
@@ -55,16 +55,16 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
         GameData.header.paintIcon(this,g,25,11);//放置header
         g.fillRect(25,75,850,600);//默认的游戏界面
 
-        if(fx.equals("R")){
+        if("R".equals(fx)){
             GameData.right.paintIcon(this,g,snakeX[0],snakeY[0]);
         }
-        else if (fx.equals("L")){
+        else if ("L".equals(fx)){
             GameData.left.paintIcon(this,g,snakeX[0],snakeY[0]);
         }
-        else if (fx.equals("U")){
+        else if ("U".equals(fx)){
             GameData.up.paintIcon(this,g,snakeX[0],snakeY[0]);
         }
-        else if(fx.equals("D")){
+        else if("D".equals(fx)){
             GameData.down.paintIcon(this,g,snakeX[0],snakeY[0]);
         }
 
@@ -107,16 +107,17 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
                 }
 
                 }
-                if(keyCode==KeyEvent.VK_DOWN){
+                //用键盘控制方向
+                if(keyCode==KeyEvent.VK_DOWN&& !"U".equals(fx)){
                     fx="D";
                 }
-                else if(keyCode==KeyEvent.VK_UP){
+                else if(keyCode==KeyEvent.VK_UP&& !"D".equals(fx)){
                     fx="U";
                 }
-                else if(keyCode==KeyEvent.VK_LEFT){
+                else if(keyCode==KeyEvent.VK_LEFT&& !"R".equals(fx)){
                     fx="L";
                 }
-                else if(keyCode==KeyEvent.VK_RIGHT){
+                else if(keyCode==KeyEvent.VK_RIGHT&& !"L".equals(fx)){
                     fx="R";
                 }
     }
@@ -163,7 +164,6 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
             }
             timer.start();//定时器开始
     }
-
 
     @Override
     public void keyTyped(KeyEvent e) {
