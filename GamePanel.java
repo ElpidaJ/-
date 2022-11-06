@@ -31,8 +31,8 @@ public class GamePanel extends JPanel implements KeyListener , ActionListener {
     public  void init(){
         length=3;
         snakeX[0]=100;snakeY[0]=100;//脑袋的坐标
-        snakeX[1]=100;snakeY[1]=100;//第一个身体的坐标
-        snakeX[2]=100;snakeY[2]=100;//第二个身体的坐标
+        snakeX[1]=75;snakeY[1]=100;//第一个身体的坐标
+        snakeX[2]=50;snakeY[2]=100;//第二个身体的坐标
         score=0;
     }
     public GamePanel(){
